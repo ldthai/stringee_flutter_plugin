@@ -148,8 +148,8 @@ class StringeeCall {
     Map<dynamic, dynamic> results = await StringeeClient.methodChannel.invokeMethod('makeCall', parameters);
     debugPrint("$results");
     Map<dynamic, dynamic> callInfo = results['callInfo'];
-
-    this.initFromInfo(callInfo);
+    if(callInfo!=null)
+      this.initFromInfo(callInfo);
 
     final Map<String, dynamic> resultDatas = {
       'status' : results['status'],
