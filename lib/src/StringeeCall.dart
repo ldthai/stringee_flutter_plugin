@@ -146,6 +146,7 @@ class StringeeCall {
   //region Actions
   Future<Map<dynamic, dynamic>> makeCall(Map<dynamic, dynamic> parameters) async {
     Map<dynamic, dynamic> results = await StringeeClient.methodChannel.invokeMethod('makeCall', parameters);
+    debugPrint("$results");
     Map<dynamic, dynamic> callInfo = results['callInfo'];
 
     this.initFromInfo(callInfo);
